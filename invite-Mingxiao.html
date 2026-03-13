@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 核心适配手机端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邀请我的老婆来家里 ❤️</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        /* 页面主体 */
+        body {
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 卡片容器（核心内容区） */
+        .invite-card {
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 24px rgba(255, 192, 203, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 爱心装饰（浮动动画） */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b8b;
+            transform: rotate(45deg);
+            opacity: 0.6;
+            animation: float 6s infinite ease-in-out;
+        }
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b8b;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            top: 0;
+            left: -10px;
+        }
+        /* 多个爱心不同动画时长和位置 */
+        .heart:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-duration: 7s;
+        }
+        .heart:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-duration: 5s;
+        }
+        .heart:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 8s;
+        }
+
+        /* 标题样式 */
+        .title {
+            text-align: center;
+            color: #d63384;
+            font-size: 24px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        /* 文案样式 */
+        .content {
+            color: #5a4b40;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: block;
+            width: 180px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #ff6b8b;
+            color: #fff;
+            border-radius: 25px;
+            margin: 0 auto 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #d63384;
+            transform: scale(1.05);
+        }
+
+        /* 落款样式 */
+        .signature {
+            text-align: right;
+            color: #8a7d74;
+            font-size: 15px;
+            padding-right: 10px;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+        }
+        .modal-content p {
+            color: #d63384;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            padding: 8px 20px;
+            background-color: #ff6b8b;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 动画定义 */
+        @keyframes float {
+            0% {
+                transform: rotate(45deg) translateY(0);
+            }
+            50% {
+                transform: rotate(45deg) translateY(-15px);
+            }
+            100% {
+                transform: rotate(45deg) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 爱心装饰（多个） -->
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+
+    <!-- 核心邀请卡片 -->
+    <div class="invite-card">
+        <h1 class="title">致我的宝贝老婆 ❤️</h1>
+        <div class="content">
+            亲爱的老婆：<br><br>
+            无论风雨，温暖常在，我的真心总为你而留。<br><br>
+            今天，想郑重地邀请我的老婆来江宅，<br>
+            这里有我有你爱吃的家常菜-春卷，黄瓜<br>
+            有新换的床单，为你准备的惊喜，<br>
+            还有等你的我，推门进来，把奔波的疲惫都卸下。<br><br>
+            愿我们窝在小小的家里，聊聊日常，吃吃小饭，<br>
+            漫步大街小巷，探寻美食，看着湖水荡漾，彼此依偎<br>
+            只做彼此最安心的依靠。<br><br>
+            等你来，我的老婆～
+        </div>
+        <a href="javascript:void(0)" class="btn" id="inviteBtn">我愿意 💖</a>
+        <div class="signature">爱你的老公</div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p>老公太爱你啦～😘</p>
+            <button id="closeBtn">确认</button>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        const inviteBtn = document.getElementById('inviteBtn');
+        const modal = document.getElementById('modal');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // 点击按钮显示弹窗
+        inviteBtn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+        });
+
+        // 关闭弹窗
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // 点击弹窗外区域关闭
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
